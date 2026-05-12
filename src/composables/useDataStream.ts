@@ -1,6 +1,6 @@
 import { ref, onUnmounted, readonly } from 'vue';
-import { NumericMetric, EventLog } from '@/types/metrics';
-import { generateMetric } from '@/utils/mockGenerator';
+import type { NumericMetric, EventLog } from '@/types/metrics';
+import { generateMetric, generateEvent } from '@/utils/mockGenerator';
 import { z } from 'zod';
 
 // Zod schemas for runtime validation
@@ -35,9 +35,9 @@ export function useDataStream() {
     let eventCallbacks: Array<(event: EventLog) => void> = [];
 
     // Validate incoming data - never trust external data!
-    function validateMetric(data: unknow): NumericMetric | null {
+    function validateMetric(data: unknown): NumericMetric | null {
         try {
-            return metricSchema.parse(date);
+            return metricSchema.parse(data);
         } catch (e) {
             rejectedCount.value++;
             console.warn('Invalid metric rejected:', e);

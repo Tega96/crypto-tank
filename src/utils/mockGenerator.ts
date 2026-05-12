@@ -1,5 +1,5 @@
-// import { m } from 'vue-router/dist/index-D_VEAp3P.js';
-import { NumericMetric, EventLog } from '../types/metrics';
+import { m } from 'vue-router/dist/index-D_VEAp3P.js';
+import type { NumericMetric, EventLog } from '../types/metrics';
 
 // Sine wave with noise for CPU-like patterns
 function generateCPUValue(baseTime: number): number {
@@ -65,11 +65,11 @@ export function generateMetric(): NumericMetric {
             unit = '%';
             break;
         case 'memory':
-            value: generateMemoryValue();
+            value = generateMemoryValue();
             unit = '%';
             break;
         case 'stock':
-            value: generateStockValue();
+            value = generateStockValue();
             unit = 'USD';
             break;
         default: 
@@ -80,7 +80,7 @@ export function generateMetric(): NumericMetric {
 
     return {
         id: `metric-${now}-${Math.random().toString(36).substr(2, 9)}`,
-        name: `${category?.toUpperCase()} Monitor`,
+        name: `${category.toUpperCase()} Monitor`,
         value: Math.round(value * 100) / 100,
         timestamp: now,
         category,
