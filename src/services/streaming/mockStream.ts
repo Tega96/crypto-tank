@@ -14,8 +14,8 @@ function fluctuate(value: number) {
     return value + value * change
 }
 
-export function generateMarketData(): MarketPoint[] {
-    return symbol.map((symbol) => {
-        prices[symbol] = fluctuate(prices[symbol])
-    })
-}
+// export function generateMarketData(): MarketPoint[] {
+//     return symbol.map((symbol) => {
+//         prices[symbol] = fluctuate(prices[symbol])
+//     })
+// }

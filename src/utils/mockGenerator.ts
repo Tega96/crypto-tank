@@ -1,4 +1,4 @@
-import { m } from 'vue-router/dist/index-D_VEAp3P.js';
+// import { m } from 'vue-router/dist/index-D_VEAp3P.js';
 import type { NumericMetric, EventLog } from '../types/metrics';
 
 // Sine wave with noise for CPU-like patterns
@@ -53,7 +53,7 @@ const eventTypes = ['alert', 'info', 'transaction', 'system'] as const;
 
 export function generateMetric(): NumericMetric {
     const now = Date.now();
-    const categories = ['cpu', 'memory', 'network', 'stock'] as const;
+    const categories = ['cpu', 'memory', 'sensor', 'stock'] as const;
     const category = categories[Math.floor(Math.random() * categories.length)];
 
     let value: number;

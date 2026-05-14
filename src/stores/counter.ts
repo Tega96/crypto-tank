@@ -10,3 +10,9 @@ export const useCounterStore = defineStore('counter', () => {
 
   return { count, doubleCount, increment }
 })
+
+<template>
+  <div> 
+    <h1>Hello world </h1>
+  </div>
+</template>
